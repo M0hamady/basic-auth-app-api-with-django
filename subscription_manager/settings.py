@@ -1,3 +1,4 @@
+import os
 from pathlib import Path
 BASE_DIR = Path(__file__).resolve().parent.parent
 from datetime import timedelta
@@ -99,8 +100,10 @@ USE_TZ = True
 
 # Static files
 STATIC_URL = '/static/'
-STATICFILES_DIRS = [BASE_DIR / 'static']
-STATIC_ROOT = BASE_DIR / 'staticfiles'
+# STATICFILES_DIRS = [BASE_DIR / 'static']
+# STATIC_ROOT = BASE_DIR / 'staticfiles'
+STATIC_ROOT = [os.path.join(BASE_DIR ,'staticfiles')]
+STATIC_DIRS = [os.path.join(BASE_DIR ,'static')]
 
 # Media files
 MEDIA_URL = '/media/'
