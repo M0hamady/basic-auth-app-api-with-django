@@ -73,10 +73,14 @@ SIMPLE_JWT = {
 WSGI_APPLICATION = 'subscription_manager.wsgi.application'
 CORS_ALLOWED_ORIGINS = [
     'http://localhost:3000',
+    'http://localhost:8000',
     'http://127.0.0.1:3000',
+    'http://127.0.0.1:8000',
     'https://*.vercel.app',
     'https://*.now.sh',
 ]
+CORS_ALLOW_ALL_ORIGINS = True  # Disable allowing all origins
+
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
