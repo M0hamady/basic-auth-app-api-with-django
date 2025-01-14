@@ -121,7 +121,7 @@ EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
 EMAIL_HOST = 'smtp.titan.email'
 EMAIL_PORT = 587  # Use 465 for SSL
 EMAIL_USE_TLS = True  # Set to False if using SSL
-SENDER_EMAIL = 'info@supportdecore.com'
+SENDER_EMAIL = 'support@codeocean.tech'
 EMAIL_PASSWORD = 'M@258147369'  # Use environment variables for security
 DEFAULT_FROM_EMAIL = 'info@supportdecore.com'
 
