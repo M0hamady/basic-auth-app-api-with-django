@@ -44,7 +44,37 @@ class CustomUserViewSet(viewsets.ModelViewSet):
             return Response(data, status=status.HTTP_200_OK)
         
         return Response({"error": "Invalid username or password"}, status=status.HTTP_400_BAD_REQUEST)
+    @action(detail=False, methods=['post'], permission_classes=[AllowAny])
+    def register(self, request):
+        """Handles user registration and returns user info with a JWT token."""
+        username = request.data.get("username")
+        email = request.data.get("email")
+        password = request.data.get("password")
+        
+        if not username or not email or not password:
+            return Response({"error": "Username, email, and password are required"}, status=status.HTTP_400_BAD_REQUEST)
+        
+        if CustomUser.objects.filter(username=username).exists():
+            return Response({"error": "Username is already taken"}, status=status.HTTP_400_BAD_REQUEST)
+        
+        if CustomUser.objects.filter(email=email).exists():
+            return Response({"error": "Email is already in use"}, status=status.HTTP_400_BAD_REQUEST)
+        
+        user = CustomUser.objects.create_user(username=username, email=email, password=password)
 
+        # Generate JWT tokens
+        refresh = RefreshToken.for_user(user)
+        data = {
+            "refresh": str(refresh),
+            "access": str(refresh.access_token),
+            "user": {
+                "id": user.id,
+                "username": user.username,
+                "email": user.email,
+            },
+        }
+
+        return Response(data, status=status.HTTP_201_CREATED)
     @action(detail=False, methods=['post'], permission_classes=[IsAuthenticated])
     def logout(self, request):
         """Handles user logout and blacklist the refresh token."""
