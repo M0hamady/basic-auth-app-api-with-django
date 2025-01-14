@@ -71,7 +71,12 @@ SIMPLE_JWT = {
     'BLACKLIST_AFTER_ROTATION': True,  # Ensure this is set to True to blacklist old refresh tokens
 }
 WSGI_APPLICATION = 'subscription_manager.wsgi.application'
-
+CORS_ALLOWED_ORIGINS = [
+    'http://localhost:3000',
+    'http://127.0.0.1:3000',
+    'https://*.vercel.app',
+    'https://*.now.sh',
+]
 DATABASES = {
     'default': {
         'ENGINE': 'django.db.backends.postgresql',
