@@ -116,11 +116,9 @@ AUTH_USER_MODEL = 'authentication.CustomUser'
 
 # CORS settings
 CORS_ALLOW_ALL_ORIGINS = True
-FRONTEND_URL = 'http://localhost:3000'
+FRONTEND_URL = 'https://react-secure-app-quick-start-qzexrcfi2-m0hamadys-projects.vercel.app/'
 EMAIL_BACKEND = 'django.core.mail.backends.smtp.EmailBackend'
-EMAIL_HOST = 'smtp.titan.email'
-EMAIL_PORT = 587  # Use 465 for SSL
-EMAIL_USE_TLS = True  # Set to False if using SSL
+SMTP_SERVER = 'smtp.titan.email'
 SENDER_EMAIL = 'support@codeocean.tech'
 EMAIL_PASSWORD = 'Mohammedy@258147369'  # Use environment variables for security
 DEFAULT_FROM_EMAIL = 'support@codeocean.tech'
