@@ -123,7 +123,7 @@ EMAIL_PORT = 587  # Use 465 for SSL
 EMAIL_USE_TLS = True  # Set to False if using SSL
 SENDER_EMAIL = 'support@codeocean.tech'
 EMAIL_PASSWORD = 'Mohammedy@258147369'  # Use environment variables for security
-DEFAULT_FROM_EMAIL = 'info@supportdecore.com'
+DEFAULT_FROM_EMAIL = 'support@codeocean.tech'
 
 
 # sudo add-apt-repository universe
