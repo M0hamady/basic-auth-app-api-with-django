@@ -36,7 +36,11 @@ MIDDLEWARE = [
     'django.contrib.auth.middleware.AuthenticationMiddleware',
     'django.contrib.messages.middleware.MessageMiddleware',
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
+    'subscription_manager.middleware.ReferrerPolicyMiddleware',  # Add this line
+
 ]
+REFERRER_POLICY = 'no-referrer-when-downgrade'  # Example policy
+
 
 ROOT_URLCONF = 'subscription_manager.urls'
 
