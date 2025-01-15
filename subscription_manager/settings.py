@@ -6,7 +6,7 @@ from datetime import timedelta
 SECRET_KEY = 'django-insecure-=s=#4*__j!##yu23zx2lxt*1m+csw6xs1s^t9@=r68u800c!)7'
 DEBUG = True
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1','.vercel.app', '.now.sh']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1','.vercel.app', '.now.sh','bazaar-marketplace.com']
 
 INSTALLED_APPS = [
     'whitenoise.runserver_nostatic',
@@ -81,6 +81,7 @@ CORS_ALLOWED_ORIGINS = [
     'http://127.0.0.1:3000',
     'http://127.0.0.1:8000',
     'https://*.vercel.app',
+    'https://bazaar-marketplace.com',
     'https://*.now.sh',
 ]
 CORS_ALLOW_ALL_ORIGINS = True  # Disable allowing all origins
